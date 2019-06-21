@@ -18,6 +18,8 @@
 Route::prefix('/index')->group(function(){
 	//注册
 	Route::get('user/register','UserController@register');
+	//注册执行
+	Route::post('user/register/index','UserController@index');
 	//登录
 	Route::get('user/login','UserController@login');
 	//前台首页

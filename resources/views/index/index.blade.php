@@ -1,7 +1,7 @@
 @extends('layouts.index')
 @section('content')
 
-	
+	  
 	<!-- slider -->
 	<div class="slider">
 		

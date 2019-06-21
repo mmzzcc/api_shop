@@ -18,8 +18,6 @@
 Route::prefix('/index')->group(function(){
 	//注册
 	Route::get('user/register','UserController@register');
-	//注册执行
-	Route::post('user/register/index','UserController@index');
 	//登录
 	Route::get('user/login','UserController@login');
 	//前台首页
@@ -32,4 +30,17 @@ Route::prefix('/index')->group(function(){
 	Route::get('goods/list','GoodsController@list');
 	//商品结算
 	Route::get('goods/checkout','GoodsController@checkout');
+	//添加购物车
+	Route::get('cart/cartAdd','CartController@cartAdd');
+	//改变购买量
+	Route::post('cart/buyNum','CartController@buyNum');
+	//注册执行
+	Route::post('user/register/index','UserController@index');
+	//处理商品结算
+	Route::post('goods/doCheckout','GoodsController@doCheckout');
+	//支付订单
+	Route::get('goods/pay','GoodsController@pay');
+	//重新获取商品数据
+	Route::get('goods/goodsInfo','GoodsController@goodsInfo');
+
 });

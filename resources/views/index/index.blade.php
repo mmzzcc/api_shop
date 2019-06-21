@@ -11,7 +11,7 @@
 				<div class="caption slider-content  center-align">
 					<h2>WELCOME TO MSTORE</h2>
 					<h4>Lorem ipsum dolor sit amet.</h4>
-					<a href="" class="btn button-default">SHOP NOW</a>
+					<a href="/index/goods/list" class="btn button-default">SHOP NOW</a>
 				</div>
 			</li>
 			<li>
@@ -19,7 +19,7 @@
 				<div class="caption slider-content center-align">
 					<h2>JACKETS BUSINESS</h2>
 					<h4>Lorem ipsum dolor sit amet.</h4>
-					<a href="" class="btn button-default">SHOP NOW</a>
+					<a href="/index/goods/list" class="btn button-default">SHOP NOW</a>
 				</div>
 			</li>
 			<li>
@@ -27,7 +27,7 @@
 				<div class="caption slider-content center-align">
 					<h2>FASHION SHOP</h2>
 					<h4>Lorem ipsum dolor sit amet.</h4>
-					<a href="" class="btn button-default">SHOP NOW</a>
+					<a href="/index/goods/list" class="btn button-default">SHOP NOW</a>
 				</div>
 			</li>
 		</ul>

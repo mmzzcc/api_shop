@@ -8,93 +8,59 @@
 				<h3>PRODUCT LIST</h3>
 			</div>
 			<div class="input-field">
-				<select>
-					<option value="">Popular</option>
-					<option value="1">New Product</option>
-					<option value="2">Best Sellers</option>
-					<option value="3">Best Reviews</option>
-					<option value="4">Low Price</option>
-					<option value="5">High Price</option>
+				<select id='order_field'>
+					<option value="shop_price">价格</option>
+					<option value="market_price">积分</option>
 				</select>
 			</div>
-			<div class="row">
-				<div class="col s6">
-					<div class="content">
-						<img src="img/product-new1.png" alt="">
-						<h6><a href="">Fashion Men's</a></h6>
-						<div class="price">
-							$20 <span>$28</span>
+			<div id="goodsInfo">
+				<div class="row margin-bottom">
+					@foreach($goodsInfo as $v)
+					<div class="col s6">
+						<div class="content">
+							<img src="/uploads/{{$v['goods_img']}}" goods_id="{{$v['goods_id']}}" style="cursor:pointer;" class="goods_img" alt="">
+							<h6><a href="detail?goods_id={{$v['goods_id']}}">{{$v['goods_name']}}</a></h6>
+							<div class="price">
+								${{$v['shop_price']}}
+							</div>
+							<a href="/index/cart/cartList?goods_id={{$v['goods_id']}}" class="btn button-default">添加到购物车</a>
 						</div>
-						<button class="btn button-default">ADD TO CART</button>
 					</div>
+					@endforeach
 				</div>
-				<div class="col s6">
-					<div class="content">
-						<img src="img/product-new2.png" alt="">
-						<h6><a href="">Fashion Men's</a></h6>
-						<div class="price">
-							$20 <span>$28</span>
-						</div>
-						<button class="btn button-default">ADD TO CART</button>
-					</div>
+				<div class="pagination-product">
+					<ul>
+						{{$goodsInfo->appends($query)->links()}}
+					</ul>
 				</div>
-			</div>
-			<div class="row margin-bottom">
-				<div class="col s6">
-					<div class="content">
-						<img src="img/product-new3.png" alt="">
-						<h6><a href="">Fashion Men's</a></h6>
-						<div class="price">
-							$20 <span>$28</span>
-						</div>
-						<button class="btn button-default">ADD TO CART</button>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="content">
-						<img src="img/product-new4.png" alt="">
-						<h6><a href="">Fashion Men's</a></h6>
-						<div class="price">
-							$20 <span>$28</span>
-						</div>
-						<button class="btn button-default">ADD TO CART</button>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col s6">
-					<div class="content">
-						<img src="img/product-new3.png" alt="">
-						<h6><a href="">Fashion Men's</a></h6>
-						<div class="price">
-							$20 <span>$28</span>
-						</div>
-						<button class="btn button-default">ADD TO CART</button>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="content">
-						<img src="img/product-new4.png" alt="">
-						<h6><a href="">Fashion Men's</a></h6>
-						<div class="price">
-							$20 <span>$28</span>
-						</div>
-						<button class="btn button-default">ADD TO CART</button>
-					</div>
-				</div>
-			</div>	
-			<div class="pagination-product">
-				<ul>
-					<li class="active">1</li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-				</ul>
 			</div>
 		</div>
 	</div>
 	<!-- end product -->
+
+	<script type="text/javascript">
+		$(function(){
+			layui.use(['layer'],function(){
+				var layer=layui.layer;
+				//点击图片进入详情页
+				$('.goods_img').click(function(){
+					var goods_id=$(this).attr('goods_id');
+					location.href='detail?goods_id='+goods_id;
+				});
+				//点击下拉框排序商品
+				$('#order_field').change(function(){
+					var order_field=$(this).val();
+					$.get(
+						'goodsInfo',
+						{order_field:order_field},
+						function(res){
+							$('#goodsInfo').html(res);
+						}
+					)
+				});
+			});
+		});
+	</script>
 
 	
 @endsection

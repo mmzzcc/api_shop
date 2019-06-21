@@ -2,7 +2,7 @@
 	<div class="navbar-top">
 		<!-- site brand	 -->
 		<div class="site-brand">
-			<a href="index.html"><h1>Mstore</h1></a>
+			<a href="/index"><h1>Mstore</h1></a>
 		</div>
 		<!-- end site brand	 -->
 		<div class="side-nav-panel-right">
@@ -25,4 +25,4 @@
 			<li><a href="/index/user/register"><i class="fa fa-user-plus"></i>Register</a></li>
 		</ul>
 	</div>
-	<!-- end side nav right-->
+<!-- end side nav right-->

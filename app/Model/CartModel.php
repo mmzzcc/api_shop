@@ -4,9 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GoodsModel extends Model
+class CartModel extends Model
 {
-    protected $table = 'shop_goods';
+    protected $table = 'shop_cart';
     public $timestamps = false;
-    protected $primaryKey='goods_id';
+    protected $primaryKey='cart_id';
 }

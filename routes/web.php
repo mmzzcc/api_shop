@@ -3,10 +3,10 @@
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|-------------------------------------------| routes are loaded by the RouteServiceProvider within a group which
+-------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
@@ -30,4 +30,9 @@ Route::prefix('/index')->group(function(){
 	Route::get('goods/list','GoodsController@list');
 	//商品结算
 	Route::get('goods/checkout','GoodsController@checkout');
+	//处理商品结算
+	Route::post('goods/doCheckout','GoodsController@doCheckout');
+	//支付订单
+	Route::get('goods/pay','GoodsController@pay');
+
 });
